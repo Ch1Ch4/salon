@@ -24,16 +24,10 @@ class Client
     /**
      * @var string
      *
-     * @ORM\Column(name="first_name", type="string", length=255)
+     * @ORM\Column(name="full_name", type="string", length=255, unique=true)
      */
-    private $firstName;
+    private $fullName;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="last_name", type="string", length=255)
-     */
-    private $lastName;
 
     /**
      * @var int
@@ -70,6 +64,13 @@ class Client
      */
     private $lastVisit;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="phone_number", type="string", length=255)
+     */
+    private $phoneNumber;
+
 
     /**
      * Get id
@@ -82,52 +83,29 @@ class Client
     }
 
     /**
-     * Set firstName
+     * Set fullName
      *
-     * @param string $firstName
+     * @param string $fullName
      *
      * @return Client
      */
-    public function setFirstName($firstName)
+    public function setFullName($fullName)
     {
-        $this->firstName = $firstName;
+        $this->fullName = $fullName;
 
         return $this;
     }
 
     /**
-     * Get firstName
+     * Get fullName
      *
      * @return string
      */
-    public function getFirstName()
+    public function getFullName()
     {
-        return $this->firstName;
+        return $this->fullName;
     }
 
-    /**
-     * Set lastName
-     *
-     * @param string $lastName
-     *
-     * @return Client
-     */
-    public function setLastName($lastName)
-    {
-        $this->lastName = $lastName;
-
-        return $this;
-    }
-
-    /**
-     * Get lastName
-     *
-     * @return string
-     */
-    public function getLastName()
-    {
-        return $this->lastName;
-    }
 
     /**
      * Set age
@@ -247,6 +225,30 @@ class Client
     public function getLastVisit()
     {
         return $this->lastVisit;
+    }
+
+    /**
+     * Set phoneNumber
+     *
+     * @param string $phoneNumber
+     *
+     * @return Client
+     */
+    public function setPhoneNumber($phoneNumber)
+    {
+        $this->phoneNumber = $phoneNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get phoneNumber
+     *
+     * @return string
+     */
+    public function getPhoneNumber()
+    {
+        return $this->phoneNumber;
     }
 }
 

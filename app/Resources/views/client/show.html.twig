@@ -1,56 +1,57 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Client</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Client</h1>
+                <a href="{{ path('client_index') }}" class="btn btn-primary pull-right">Back to the list</a>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ client.id }}</td>
-            </tr>
-            <tr>
-                <th>Firstname</th>
-                <td>{{ client.firstName }}</td>
-            </tr>
-            <tr>
-                <th>Lastname</th>
-                <td>{{ client.lastName }}</td>
-            </tr>
-            <tr>
-                <th>Age</th>
-                <td>{{ client.age }}</td>
-            </tr>
-            <tr>
-                <th>Gender</th>
-                <td>{{ client.gender }}</td>
-            </tr>
-            <tr>
-                <th>Location</th>
-                <td>{{ client.location }}</td>
-            </tr>
-            <tr>
-                <th>Typeofservice</th>
-                <td>{{ client.typeOfService }}</td>
-            </tr>
-            <tr>
-                <th>Lastvisit</th>
-                <td>{{ client.lastVisit }}</td>
-            </tr>
-        </tbody>
-    </table>
+                <table class="table table-striped">
+                    <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ client.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Full Name</th>
+                        <td>{{ client.fullName }}</td>
+                    </tr>
+                    <tr>
+                        <th>Age</th>
+                        <td>{{ client.age }}</td>
+                    </tr>
+                    <tr>
+                        <th>Gender</th>
+                        <td>{{ client.gender }}</td>
+                    </tr>
+                    <tr>
+                        <th>Location</th>
+                        <td>{{ client.location }}</td>
+                    </tr>
+                    <tr>
+                        <th>Typeofservice</th>
+                        <td>{{ client.typeOfService }}</td>
+                    </tr>
+                    <tr>
+                        <th>Last visit</th>
+                        <td>{{ client.lastVisit|date('F j, Y, g:i a') }}</td>
+                    </tr>
+                    <tr>
+                        <th>Phone Number</th>
+                        <td>{{ client.phoneNumber }}</td>
+                    </tr>
+                    </tbody>
+                </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('client_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('client_edit', { 'id': client.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                <a href="{{ path('client_edit', { 'id': client.id }) }}" class="btn btn-primary pull-left">Edit</a>
+                {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btn btn-danger pull-left">
+                {{ form_end(delete_form) }}
+
+            </div>
+        </div>
+    </div><!-- /.container -->
+
+
 {% endblock %}
